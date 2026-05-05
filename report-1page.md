@@ -1,17 +1,18 @@
-# Report 1 page - Lab 4 DES / TripleDES
+# Báo cáo thực hành Lab 4
 
-## Mục tiêu
 
- Viết ngắn gọn mục tiêu của bài lab.
+**1. Mục tiêu:**
+* Phân tích quy trình hoạt động của thuật toán DES và TripleDES.
+* Triển khai thành công cơ chế chia khối và Zero Padding cho dữ liệu thực tế.
 
-## Cách làm / Method
+**2. Cách làm:**
+* Xây dựng chương trình dựa trên cấu trúc DES Feistel 16 vòng.
+* Hoàn thiện hàm giải mã DES bằng cách đảo ngược thứ tự khóa vòng.
+* Cài đặt TripleDES theo quy trình EDE: Encrypt(K3, Decrypt(K2, Encrypt(K1, P))).
 
- Mô tả em đã làm gì với file code gốc, bổ sung những chức năng nào, cấu trúc chương trình ra sao.
+**3. Kết quả:**
+* Chương trình chạy đúng các chế độ mã hóa/giải mã theo yêu cầu của Submission Contract.
+* Xử lý chính xác các trường hợp plaintext dài hơn 64-bit bằng cách chia block và padding.
 
-## Kết quả / Result
-
- Trình bày kết quả chạy chương trình, test chính, trường hợp đúng/sai, ví dụ ciphertext hoặc round-trip.
-
-## Kết luận / Conclusion
-
- Nêu điều học được, hạn chế hiện tại, và hướng mở rộng như decryption / TripleDES / multi-block.
+**4. Kết luận:**
+* Thuật toán DES và TripleDES đã được cài đặt đúng quy trình, đảm bảo tính toàn vẹn dữ liệu khi mã hóa và giải mã.
