@@ -21,7 +21,6 @@ TAMPERED="${FLIPPED}${CIPHERTEXT:1}"
 
 # 3. Giải mã bản mã đã bị thay đổi
 DECRYPTED=$(echo -e "2\n$TAMPERED\n$KEY" | $DES_EXE)
-
 echo "--- Kết quả Test Tamper ---"
 echo "Original plaintext:  $PLAINTEXT"
 echo "Decrypted tampered:  $DECRYPTED"
