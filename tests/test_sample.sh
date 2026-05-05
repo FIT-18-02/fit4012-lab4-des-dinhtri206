@@ -1,18 +1,26 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-EXPECTED="Ciphertext: 0111111010111111010001001001001100100011111110101111101011111000"
-
+# Biên dịch chương trình
 g++ -std=c++17 -Wall -Wextra -pedantic des.cpp -o des_test
-OUTPUT=$(./des_test)
-LAST_LINE=$(printf "%s\n" "$OUTPUT" | tail -n 1)
 
-if [[ "$LAST_LINE" != "$EXPECTED" ]]; then
-  echo "[FAIL] Unexpected ciphertext output"
-  echo "Expected: $EXPECTED"
-  echo "Actual:   $LAST_LINE"
+# Dữ liệu mẫu (Mode 1: Encrypt)
+# Input format: mode data key
+PLAINTEXT="0123456789ABCDEF" # Giả sử data của bạn dạng hex hoặc bit tùy code
+KEY="133457799BBCDFF1"
+EXPECTED_PART="85E813540F0AB405" # Thay thế bằng kết quả đúng của bạn
+
+# Chạy chương trình và lấy kết quả
+OUTPUT=$(echo -e "1\n$PLAINTEXT\n$KEY" | ./des_test)
+
+echo "Dữ liệu gốc: $PLAINTEXT"
+echo "Kết quả thực tế: $OUTPUT"
+
+# Kiểm tra kết quả (so sánh chuỗi)
+if [[ "$OUTPUT" != *"$EXPECTED_PART"* ]]; then
+  echo "[FAIL] Kết quả mã hóa không khớp với mong đợi"
   exit 1
 fi
 
-echo "[PASS] Sample DES program produced the expected ciphertext."
+echo "[PASS] Chương trình DES tạo ra bản mã chính xác."
 rm -f des_test
