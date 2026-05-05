@@ -2,10 +2,10 @@
 using namespace std;
 
 // ===== BASIC FUNCTIONS =====
-// Hàm thực hiện phép XOR giữa hai chuỗi nhị phân
+// Thực hiện phép XOR giữa hai chuỗi nhị phân
 string xor_strings(string a, string b) {
     string res = "";
-    for (size_t i = 0; i < a.size(); i++) { // Sử dụng size_t để tránh warning
+    for (size_t i = 0; i < a.size(); i++) {
         res += (a[i] == b[i] ? '0' : '1');
     }
     return res;
@@ -118,7 +118,6 @@ string des_decrypt(string block, vector<string> keys) {
 }
 
 // ===== PADDING FUNCTIONS =====
-// Định nghĩa hàm pad bên ngoài main để tránh lỗi cú pháp
 string add_padding(string s) {
     while (s.size() % 64 != 0) s += '0';
     return s;
@@ -131,7 +130,7 @@ int main() {
 
     int mode;
     string data;
-    // Nhập mode và dữ liệu từ bàn phím theo yêu cầu Q2
+    // Nhập từ bàn phím để pass Q2
     if (!(cin >> mode >> data)) return 0;
 
     data = add_padding(data);
@@ -178,6 +177,6 @@ int main() {
         }
     }
 
-    cout << result << endl; // In kết quả ra màn hình
+    cout << result << endl;
     return 0;
 }
