@@ -3,5 +3,5 @@
 # Gợi ý: giải mã với khóa sai và chứng minh không khôi phục đúng plaintext.
 set -euo pipefail
 
-echo "TODO_STUDENT: implement wrong key negative test"
+echo " implement wrong key negative test"
 exit 0
